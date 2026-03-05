@@ -1,23 +1,32 @@
-import './Form.css'
+import "./Form.css";
 
-function Form({sectionKey, label, inputs, data, onInput}) {
+function Form({ sectionKey, inputs, data, onInput }) {
+  if (!data) return null;
+
   return (
-    <>
-      <h2>{label}</h2>
-      {inputs.map((input) => (
-        <div key={input.field}>
-          <label htmlFor={input.field}>{input.label}</label>
-          <input 
-            id={input.field} 
-            type={input.type} 
-            placeholder={input.placeholder} 
-            value={data[input.field]} 
-            onChange={(e) => onInput(sectionKey, input.key, e.target.value)} 
-          />
-        </div>
-      ))}
-    </>
-  )
+    <div className="inputs-container">
+      <div className="inputs">
+        {inputs.map((input) => (
+          <div key={input.key} className="input-group">
+            <label htmlFor={`${data.id}`}>
+              {input.label}
+            </label>
+
+            {(
+              <input
+                type={input.type}
+                id={`${data.id}`}
+                value={data[input.key]}
+                onChange={(e) =>
+                  onInput(sectionKey, input.key, e.target.value, data.id)
+                }
+              />
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default Form
+export default Form;
