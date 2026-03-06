@@ -232,7 +232,7 @@ function App() {
             <div className="work-list-container">
               {experienceInfoData.map((company) => (
                 <div key={company.id} className="company-group-container">
-                  {educationInfoData.length >= 1 && (
+                  {experienceInfoData.length >= 1 && (
                     <h3>{company.companyName}</h3>
                   )}
                   <div className="buttons-container">
