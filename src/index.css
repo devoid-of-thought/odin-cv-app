@@ -12,12 +12,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-    --far-background-color: #eeeeee;
-  --close-background-color: #cccccc;
+  --far-background-color: #eeeeee;
+  --close-background-color: #f0f0f0;
   --primary-color: #020100;
   --secondary-color: #801a86;
   --accent-color: #e768f3;
-  background-color: var(--far-background-color);
+  background-color: var(--close-background-color);
   font-family: "Space Grotesk", sans-serif;
 }
 
@@ -33,9 +33,9 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  min-width: 600px;
   min-height: 100vh;
+  justify-content: space-around;
 }
 
 h1 {
@@ -45,7 +45,9 @@ h1 {
 
 @font-face {
   font-family: "Space Grotesk, sans-serif";
-  src: uurl('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+  src: uurl(
+    "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+  );
 }
 
 button {

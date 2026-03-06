@@ -12,16 +12,29 @@ function Form({ sectionKey, inputs, data, onInput }) {
               {input.label}
             </label>
 
-            {(
-              <input
-                type={input.type}
-                id={`${data.id}`}
-                value={data[input.key]}
-                onChange={(e) =>
-                  onInput(sectionKey, input.key, e.target.value, data.id)
-                }
-              />
-            )}
+            {input.type === "textarea" ? (
+                <textarea
+                spellCheck="false"
+                  id={`${data.id}-${input.key}`}
+                  value={data[input.key]}
+                  className={input.className}
+                  placeholder={input.placeholder}
+                  onChange={(e) =>
+                    onInput(sectionKey, input.key, e.target.value, data.id)
+                  }
+                />
+              ) : (
+                <input
+                  type={input.type}
+                  id={`${data.id}-${input.key}`}
+                  value={data[input.key]}
+                  className={input.className}
+                  placeholder={input.placeholder}
+                  onChange={(e) =>
+                    onInput(sectionKey, input.key, e.target.value, data.id)
+                  }
+                />
+              )}
           </div>
         ))}
       </div>

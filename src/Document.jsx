@@ -1,43 +1,62 @@
-  import './Document.css'
+import "./Document.css";
+import Icon from "@mdi/react";
+import { mdiEmailOutline, mdiPhone, mdiMapMarkerOutline } from "@mdi/js";
 
-  function Document({ generalInfoData, educationInfoData, experienceInfoData }) {
-    return (
-      <div className="document-preview">
+function Document({ generalInfoData, educationInfoData, experienceInfoData }) {
+  return (
+    <div className="document-preview">
       <header>
-        <h1>My CV</h1>
+        <section className="general-information">
+          <h1>
+            {generalInfoData.firstName} {generalInfoData.lastName}
+          </h1>
+          <div className="contact-information">
+            <div className="contact-item">
+              <Icon path={mdiEmailOutline} size={1} />
+
+              <p>{generalInfoData.email}</p>
+            </div>
+            <div className="contact-item">
+              <Icon path={mdiPhone} size={1} />
+
+              <p>{generalInfoData.phone}</p>
+            </div>
+            <div className="contact-item">
+              <Icon path={mdiMapMarkerOutline} size={1} />
+
+              <p>{generalInfoData.address}</p>
+            </div>
+          </div>
+        </section>
       </header>
-      <section className='general-information'>
-        <h2>General Information</h2>
-        <p>First Name: {generalInfoData.firstName}</p>
-        <p>Last Name: {generalInfoData.lastName}</p>
-        <p>Email: {generalInfoData.email}</p>
-        <p>Phone: {generalInfoData.phone}</p>
-        <p>Address: {generalInfoData.address}</p>
-        <p>Description: {generalInfoData.description}</p>
-      </section>
-      <section className='education-information'>
+      <section className="education-information">
         <h2>Education</h2>
         {educationInfoData.map((school) => (
           <div key={school.id} className="document-item">
-            <p>School Name: {school.schoolName}</p>
-            <p>Title of Study: {school.titleOfStudy}</p>
-            <p>Start of Study: {school.startOfStudy} - End of Study: {school.endOfStudy}</p>
+            <h3>{school.schoolName}</h3>
+            <h4>{school.titleOfStudy}</h4>
+            <p className="start">Start: {school.startOfStudy}</p>
+            <p className="end">Graduation: {school.endOfStudy}</p>
           </div>
         ))}
       </section>
-      <section className='experience-information'>
+      <section className="experience-information">
         <h2>Experience</h2>
         {experienceInfoData.map((company) => (
-          <div key={company.id} className="document-item">
-            <p>Company Name: {company.companyName}</p>
-            <p>Position Title: {company.positionTitle}</p>
-            <p>Main Responsibilities: {company.mainResponsibilities}</p>
-            <p>Start of Work: {company.startOfWork} - End of Work: {company.endOfWork}</p>
+          <div key={company.id} className="document-item experience">
+            <h3>{company.companyName}</h3>
+            <h4>{company.positionTitle}</h4>
+            <p className="start">Start of Work: {company.startOfWork}</p>
+            <p className="end">
+              End of Work:
+              {company.endOfWork}
+            </p>
+            <p className="responsibilities">{company.mainResponsibilities}</p>
           </div>
         ))}
       </section>
     </div>
-  )
+  );
 }
 
-export default Document
+export default Document;
