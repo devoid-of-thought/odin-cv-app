@@ -6,7 +6,7 @@ import {
   educationInformation,
   experienceInformation,
 } from "./Inputs.jsx";
-import "./App.css";
+import "../styles/App.css";
 import Button from "./Button.jsx";
 import Icon from "@mdi/react";
 import { mdiPencil } from "@mdi/js";

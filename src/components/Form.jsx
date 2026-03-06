@@ -1,4 +1,4 @@
-import "./Form.css";
+import "../styles/Form.css";
 
 function Form({ sectionKey, inputs, data, onInput }) {
   if (!data) return null;

@@ -1,4 +1,4 @@
-import "./Document.css";
+import "../styles/Document.css";
 import Icon from "@mdi/react";
 import { mdiEmailOutline, mdiPhone, mdiMapMarkerOutline } from "@mdi/js";
 
