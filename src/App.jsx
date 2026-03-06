@@ -200,7 +200,7 @@ function App() {
                       onInput={handleInput}
                     />
                     <div className="buttons-container">
-                      <Button onClick={() => toggleModal(activeEducation)}>
+                      <Button onClick={() => toggleModal(activeEducation.id)}>
                         Save
                       </Button>
                       <Button
@@ -256,7 +256,7 @@ function App() {
                     onInput={handleInput}
                   />
                   <div className="buttons-container">
-                    <Button onClick={() => toggleModal(activeExperience)}>
+                    <Button onClick={() => toggleModal(activeExperience.id)}>
                       Save
                     </Button>
                     <Button
